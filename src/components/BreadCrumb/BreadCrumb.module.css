@@ -1,0 +1,37 @@
+.wrapper {
+  margin-bottom: 30px;
+}
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  background-color: rgb(51, 51, 51);
+  padding: 12px 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  width: fit-content;
+}
+
+.breadcrumb a,
+.breadcrumb span {
+  font-size: 14px;
+  text-decoration: none;
+  color: #6b7280;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: rgb(200, 200, 200);
+}
+
+.breadcrumb a::after {
+  content: "/";
+  margin-left: 8px;
+  color: #d1d5db;
+}
+
+.breadcrumb span {
+  color: rgb(61, 61, 255);
+  font-weight: 600;
+}
