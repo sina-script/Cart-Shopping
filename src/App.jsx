@@ -14,9 +14,17 @@ function App() {
     });
 
     if (mainProduct) {
-      setCart(...cart, mainProduct);
+      setCart([...cart, mainProduct]);
     }
   };
+
+  const removeFromCart=(productId)=>{
+    const newCart=cart.filter((product)=>{
+      return product.id!=productId
+    })
+
+    setCart(newCart);
+  }
 
   return (
     <div className="store">
@@ -28,7 +36,7 @@ function App() {
         })}
       </section>
 
-      <Navigation></Navigation>
+      <Navigation cart={cart} removeFromCart={removeFromCart}></Navigation>
     </div>
   );
 }

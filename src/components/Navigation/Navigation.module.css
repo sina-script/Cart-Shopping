@@ -11,28 +11,28 @@
 
 .navWrapper {
   display: flex;
+  align-items: center;
   gap: 18px;
   padding: 12px 16px;
   background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(18px);
-  border-radius: 50px;
+  -webkit-backdrop-filter: blur(18px);
+  border-radius: 999px;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
   pointer-events: auto;
-  align-items: center;
 }
 
 .navItem {
   width: 45px;
   height: 45px;
   border: none;
-  background: white;
+  background: #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.25s ease;
-  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .navItem img {
@@ -43,7 +43,7 @@
 
 .navItem:hover {
   transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.14);
 }
 
 .cartBox {
@@ -58,11 +58,12 @@
   left: 50%;
   transform: translateX(-50%) translateY(10px);
   width: 290px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 24px;
   padding: 14px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.14);
   opacity: 0;
   visibility: hidden;
   transition: all 0.28s ease;
@@ -75,59 +76,54 @@
 }
 
 .cartHeader {
+  margin-bottom: 12px;
   font-size: 14px;
   font-weight: 700;
-  color: #111;
-  margin-bottom: 12px;
+  color: #111111;
 }
 
 .cartItems {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  max-height: 240px;
-  overflow-y: auto;
-  padding-right: 2px;
 }
 
 .cartCard {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #f8f8f8;
-  border-radius: 16px;
   padding: 8px;
+  border-radius: 16px;
+  background: rgb(231, 231, 231);
 }
 
 .productImage {
-  width: 52px;
-  height: 52px;
-  border-radius: 12px;
+  width: 54px;
+  height: 54px;
+  border-radius: 14px;
   object-fit: cover;
-  background: #fff;
+  background: #ffffff;
+  flex-shrink: 0;
 }
 
 .productInfo {
+  min-width: 0;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 0;
-  flex: 1;
 }
 
 .productName {
+  margin: 0 0 4px 0;
   font-size: 13px;
   font-weight: 600;
-  color: #222;
-  margin: 0 0 4px 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  color: #1a1a1a;
 }
 
 .productPrice {
   font-size: 12px;
-  color: #666;
+  color: #666666;
 }
 
 .cartFooter {
@@ -137,11 +133,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.cartFooter span {
   font-size: 13px;
-  color: #111;
+  color: #444444;
 }
 
 .cartFooter strong {
   font-size: 14px;
-  color: #000;
+  color: #111111;
+}
+
+.trashBtn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.trashBtn img {
+  width: 25px;
+  height: 25px;
 }

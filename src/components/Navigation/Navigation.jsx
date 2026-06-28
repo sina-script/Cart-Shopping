@@ -1,32 +1,13 @@
-import styles from "./Navigation.module.css"
+import styles from "./Navigation.module.css";
 
-function Navigation() {
-  const cartItems = [
-    {
-      id: 1,
-      name: "Nike Air Max",
-      price: 3200000,
-      image: "/images/product-1.png",
-    },
-    {
-      id: 2,
-      name: "Leather Bag",
-      price: 1850000,
-      image: "/images/product-2.png",
-    },
-    {
-      id: 3,
-      name: "Smart Watch",
-      price: 2750000,
-      image: "/images/product-3.png",
-    },
-  ]
+function Navigation({ cart ,removeFromCart}) {
+  const totalPrice = () => {
+    const total = cart.reduce((total, product) => {
+      return total + product.price;
+    }, 0);
 
-  const totalPrice = cartItems.reduce((sum, item) => sum + item.price, 0)
-
-  const formatPrice = (price) => {
-    return price.toLocaleString("fa-IR")
-  }
+    return total.toLocaleString();
+  };
 
   return (
     <nav className={styles.navContainer}>
@@ -48,27 +29,33 @@ function Navigation() {
             <div className={styles.cartHeader}>Cart</div>
 
             <div className={styles.cartItems}>
-              {cartItems.map((item) => (
-                <div className={styles.cartCard} key={item.id}>
-                  <img
-                    src={item.image}
-                    alt={item.name}
-                    className={styles.productImage}
-                  />
+              {cart.map((cartItem) => {
+                return (
+                  <div className={styles.cartCard}>
+                    <img
+                      src={cartItem.imgSrc}
+                      alt="product"
+                      className={styles.productImage}
+                    />
 
-                  <div className={styles.productInfo}>
-                    <p className={styles.productName}>{item.name}</p>
-                    <span className={styles.productPrice}>
-                      {formatPrice(item.price)} تومان
-                    </span>
+                    <div className={styles.productInfo}>
+                      <p className={styles.productName}>{cartItem.title}</p>
+                      <span className={styles.productPrice}>
+                        $ {cartItem.price.toLocaleString()}
+                      </span>
+                    </div>
+
+                    <button className={styles.trashBtn} onClick={()=>removeFromCart(cartItem.id)}>
+                      <img src="/Images/trash.png" alt="delete" />
+                    </button>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             <div className={styles.cartFooter}>
-              <span>جمع کل</span>
-              <strong>{formatPrice(totalPrice)} تومان</strong>
+              <span>Total</span>
+              <strong>$ {totalPrice()}</strong>
             </div>
           </div>
         </div>
@@ -76,10 +63,9 @@ function Navigation() {
         <button className={styles.navItem}>
           <img src="/Images/favorite.png" alt="favorite" />
         </button>
-
       </div>
     </nav>
-  )
+  );
 }
 
-export default Navigation
+export default Navigation;

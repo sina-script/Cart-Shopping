@@ -12,7 +12,7 @@ function Product({id, title, imgSrc, description, price ,addToCart}) {
         <p className={styles.description}>{description}</p>
 
         <div className={styles.footer}>
-          <span className={styles.price}>${price}</span>
+          <span className={styles.price}>$ {price.toLocaleString()}</span>
           <button className={styles.button} onClick={()=>addToCart(id)}>Add to Cart</button>
         </div>
       </div>
