@@ -15,13 +15,14 @@ body {
 
 .products {
   margin-top: 30px;
+  margin-bottom: 90px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
   background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   padding: 40px 40px 0px 40px;
   border-radius: 25px;
 }

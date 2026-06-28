@@ -1,6 +1,6 @@
 import styles from "./Product.module.css";
 
-function Product({ title, imgSrc, description, price }) {
+function Product({id, title, imgSrc, description, price ,addToCart}) {
   return (
     <article className={styles.card}>
       <div className={styles.imageWrapper}>
@@ -13,7 +13,7 @@ function Product({ title, imgSrc, description, price }) {
 
         <div className={styles.footer}>
           <span className={styles.price}>${price}</span>
-          <button className={styles.button}>Add to Cart</button>
+          <button className={styles.button} onClick={()=>addToCart(id)}>Add to Cart</button>
         </div>
       </div>
     </article>
